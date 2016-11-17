@@ -9,12 +9,14 @@
 import Foundation
 
 class colony{
-    var size = 20
+    let size = 60
     var cells = Set<cell>()
     var ncells = Set<cell>()
     var generation = 0
-    //var numAlive = cells.length
-    
+    var numAlive: Int {
+        return cells.count
+    }
+
     
     
     func round1() {
@@ -96,7 +98,6 @@ class colony{
         round1()
         cells = ncells
         ncells = []
-        print(printer())
         generation += 1
         
     }
@@ -108,23 +109,5 @@ class colony{
         return cells.contains(isCell)
     }
     
-    func printer() -> String{
-        var s : String = ""
-        print(generation)
-        print("\n")
-        for i in 1...(size-1){
-            for j in 1...(size-1){
-                if alive(x: j, y: i){
-                    s += "*"
-                }
-                else{
-                    s += " "
-                }
-                
-            }
-            s += "\n"
-        }
-        return s
-    }
     
 }
